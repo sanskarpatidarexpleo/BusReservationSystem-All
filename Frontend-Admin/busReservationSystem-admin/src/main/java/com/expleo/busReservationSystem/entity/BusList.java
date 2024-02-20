@@ -1,6 +1,7 @@
 package com.expleo.busReservationSystem.entity;
 
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -14,12 +15,13 @@ public class BusList {
 //	@Id
 	private String busNumber;
 	private String busName;
-	private String seatsAvailable;
+	private int seatsAvailable;
 	private String source;
 	private String destination;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date departuredate;
+	private LocalDate departuredate;
 	private LocalTime departureTime;
+	private float price;
 	public String getBusName() {
 		return busName;
 	}
@@ -44,10 +46,10 @@ public class BusList {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
-	public Date getDeparturedate() {
+	public LocalDate getDeparturedate() {
 		return departuredate;
 	}
-	public void setDeparturedate(Date departuredate) {
+	public void setDeparturedate(LocalDate departuredate) {
 		this.departuredate = departuredate;
 	}
 	public LocalTime getDepartureTime() {
@@ -60,28 +62,38 @@ public class BusList {
 	public BusList() {
 		
 	}
-	public BusList(String busNumber,String busName, String seatsAvailable,String source, String destination, Date departuredate,
-			LocalTime departureTime) {
+	public int getSeatsAvailable() {
+		return seatsAvailable;
+	}
+	public void setSeatsAvailable(int seatsAvailable) {
+		this.seatsAvailable = seatsAvailable;
+	}
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	public BusList(String busNumber, String busName, int seatsAvailable, String source, String destination,
+			LocalDate departuredate, LocalTime departureTime, float price) {
 		super();
-		this.busName = busName;
 		this.busNumber = busNumber;
-		this.seatsAvailable=seatsAvailable;
+		this.busName = busName;
+		this.seatsAvailable = seatsAvailable;
 		this.source = source;
 		this.destination = destination;
 		this.departuredate = departuredate;
 		this.departureTime = departureTime;
+		this.price = price;
 	}
 	@Override
 	public String toString() {
-		return "BusList [busNumber=" + busNumber + ",busName=" + busName +  ", source=" + source + ", destination="
-				+ destination + ", departuredate=" + departuredate + ", departureTime=" + departureTime + "]";
+		return "BusList [busNumber=" + busNumber + ", busName=" + busName + ", seatsAvailable=" + seatsAvailable
+				+ ", source=" + source + ", destination=" + destination + ", departuredate=" + departuredate
+				+ ", departureTime=" + departureTime + ", price=" + price + "]";
 	}
-	public String getSeatsAvailable() {
-		return seatsAvailable;
-	}
-	public void setSeatsAvailable(String seatsAvailable) {
-		this.seatsAvailable = seatsAvailable;
-	}
+	
+	
 	
 	
 	

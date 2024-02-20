@@ -1,26 +1,21 @@
 package com.expleo.busReservationSystem.entity;
 
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.Id;
 
-//@Entity
 public class AdminLogin {
-//	@Id
-	private String username;
+	private int id;
+	private String email;
 	private String password;
-	
-public AdminLogin() {
-		
+	public int getId() {
+		return id;
 	}
-	public AdminLogin(String username,String password) {
-		super();
-		this.username = username;
-		this.password = password;	}
-	public String getUsername() {
-		return username;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPassword() {
 		return password;
@@ -28,12 +23,22 @@ public AdminLogin() {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public AdminLogin(int id, String email, String password) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+	}
+	public AdminLogin() {
+		super();
+	}
 	@Override
 	public String toString() {
-		return "AdminLogin [username=" + username + ", password=" + password + "]";
+		return "AdminLogin [id=" + id + ", email=" + email + ", password=" + password + "]";
 	}
 	
 	
-	
+
 }
+	
+	
