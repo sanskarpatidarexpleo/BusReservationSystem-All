@@ -1,7 +1,7 @@
 package com.expleo.busReservationSystem.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Id;
 
 //@Entity
 public class AdminLogin {
