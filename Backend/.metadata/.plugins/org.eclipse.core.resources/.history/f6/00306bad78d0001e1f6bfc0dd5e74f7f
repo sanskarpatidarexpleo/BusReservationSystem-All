@@ -1,0 +1,5 @@
+package com.expleo.busReservationSystem.db;
+
+public class AdminAuthRepositoty {
+
+}

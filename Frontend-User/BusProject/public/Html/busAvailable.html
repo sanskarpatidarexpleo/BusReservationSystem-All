@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Buses</title>
+    
+<style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+.bus {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bus h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.bus-info {
+    display: flex;
+    justify-content: space-between;
+}
+.time-info p {
+    margin: 5px 0;
+}
+.price-info {
+    text-align: right;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.price-text {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Available Buses</h2>
+        <div class="bus">
+            <h3>Bus 1</h3>
+            <div class="bus-info">
+                <div class="time-info">
+                   <p>Departure: 10:00 AM</p>
+                   <p>Arrival: 12:00 PM</p>
+                   <p>Duration: 2h</p>
+               </div>
+           <div class="price-info">
+               <p><b>Rs.900</b></p>
+               <p class="price-text">Starting from</p>
+        </div> 
+           </div>
+           <button onclick="viewSeats(1)">View Seats</button>
+        </div>
+        <div class="bus">
+            <h3>Bus 2</h3>
+            <div class="bus-info">
+                <div class="time-info">
+            <p>Departure: 11:00 AM</p>
+            <p>Arrival: 1:00 PM </p>
+            <p>Duration: 2h</p>
+        </div>
+        <div class="price-info">
+            <p><b>Rs.1000</b></p>
+            <p class="price-text">Starting from</p>
+        </div> 
+        </div>
+            <button onclick="viewSeats(2)">View Seats</button>
+        </div>
+        <div class="bus">
+            <h3>Bus 3</h3>
+            <div class="bus-info">
+                <div class="time-info">
+            <p>Departure: 12:00 PM</p>
+            <p>Arrival: 2:00 PM</p>
+            <p>Duration: 2h</p>
+        </div>
+        <div class="price-info">
+            <p><b>Rs.1200</b></p>
+            <p class="price-text">Starting from</p>
+        </div>   
+        </div>
+            <button onclick="viewSeats(3)">View Seats</button>
+        </div>
+        <div class="bus">
+            <h3>Bus 4</h3>
+            <div class="bus-info">
+                <div class="time-info">
+            <p>Departure: 1:00 PM</p>
+            <p>Arrival: 3:00 PM</p>
+            <p>Duration: 2h</p>
+        </div>
+        <div class="price-info">
+            <p><b>Rs.1100</b></p>
+            <p class="price-text">Starting from</p>
+        </div> 
+        </div>
+
+            <button onclick="viewSeats(4)">View Seats</button>
+        </div>
+        <div class="bus">
+            <h3>Bus 5</h3>
+            <div class="bus-info">
+                <div class="time-info">
+            <p>Departure: 2:00 PM</p>
+            <p>Arrival: 4:00 PM</p>
+            <p>Duration: 2h</p>
+        </div>
+        <div class="price-info">
+            <p><b>Rs.950</b></p>
+            <p class="price-text">Starting from</p>
+        </div> 
+        </div>
+            <button onclick="viewSeats(5)">View Seats</button>
+        </div>
+    </div>
+
+    <script>
+        function viewSeats(busId) {
+            // Redirect to a page to view available seats for the selected bus
+            window.location.href = "viewSeats.html?busId=" + busId;
+        }
+    </script>
+</body>
+</html>

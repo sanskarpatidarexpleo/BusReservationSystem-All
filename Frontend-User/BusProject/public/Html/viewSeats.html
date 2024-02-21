@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Seats</title>
+   
+    <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+#seats-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.seat {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+}
+
+.available {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.booked {
+    background-color: #f44336;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Available Seats</h2>
+        <div id="seats-list">
+            <!-- Seats will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        // Dummy data for available seats (replace with actual data from your database)
+        const availableSeats = [
+            { seatNumber: 1, isAvailable: true },
+            { seatNumber: 2, isAvailable: false },
+            { seatNumber: 3, isAvailable: true },
+            { seatNumber: 4, isAvailable: true },
+            // Add more seat data as needed
+        ];
+
+        // Function to dynamically generate seat list
+        function generateSeatList(seats) {
+            const seatsList = document.getElementById('seats-list');
+            seatsList.innerHTML = ''; // Clear previous content
+
+            seats.forEach(seat => {
+                const seatElement = document.createElement('div');
+                seatElement.classList.add('seat');
+                seatElement.textContent = `Seat ${seat.seatNumber}`;
+                if (seat.isAvailable) {
+                    seatElement.classList.add('available');
+                } else {
+                    seatElement.classList.add('booked');
+                }
+                seatsList.appendChild(seatElement);
+            });
+        }
+
+        // Call the function to generate seat list on page load
+        window.onload = function() {
+            generateSeatList(availableSeats);
+        };
+    </script>
+</body>
+</html>
