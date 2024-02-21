@@ -23,10 +23,10 @@ import com.expleo.busReservationSystem.entity.BusList;
 @Controller
 public class AdminController {
 	
-	//private static final String BASE_URL = "http://localhost:8090/";
+	private static final String BASE_URL = "http://localhost:8090/";
 	
-	//@Autowired
-	//RestTemplate restTemplate;
+	@Autowired
+	RestTemplate restTemplate;
 	
 	@GetMapping(path="admin")
 	public String adminLogin() {
@@ -36,25 +36,25 @@ public class AdminController {
 	@PostMapping(path="/adminDashboard")
 	public String adminPage(@RequestParam String email,String password , Model ml) {
 		
-//		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL+"/loginAdmin")
-//		        .queryParam("email", email)
-//		        .queryParam("password", password);
-//		String url = builder.toUriString();
-//		
-//		ResponseEntity<ResponseModel> response = restTemplate.getForEntity(url, ResponseModel.class);
-//		String result = response.getBody().message;
-//		
-//		if(response.getBody().status) {
-//			//Success
-//			
-//		} else {
-//			//Failed
-//		}
-//		ml.addAttribute("status",result);
-		return "AdminDashboard";
+		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL+"/adminLogin")
+		        .queryParam("email", email)
+		        .queryParam("password", password);
+		String url = builder.toUriString();
+		
+		ResponseEntity<ResponseModel> response = restTemplate.getForEntity(url, ResponseModel.class);
+		ResponseModel responseModel = response.getBody();
+
+		 if (responseModel != null && responseModel.status) {
+		        ml.addAttribute("status", responseModel.message);
+		        return "AdminDashboard";
+		    } else {
+		        ml.addAttribute("error", "Invalid username or password");
+		        return "AdminLogin";
+		    }
 	}
 	@GetMapping(path="/addBus")
 	public String AddBus() {
+		
 		return "AddBus";
 	}
 
