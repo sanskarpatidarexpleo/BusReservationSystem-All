@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.expleo.busReservationSystem.ResponseModel;
+import com.expleo.busReservationSystem.db.AdminAuthRepository;
 import com.expleo.busReservationSystem.db.AuthRepository;
+import com.expleo.busReservationSystem.entites.AdminEntity;
 import com.expleo.busReservationSystem.entites.LoginUserEntity;
 
 @Service
@@ -12,6 +14,9 @@ public class AuthService {
 
 	@Autowired
 	AuthRepository authRepository;
+	
+	@Autowired
+	AdminAuthRepository adminAuthRepository;
 	
 	public ResponseModel loginUser(LoginUserEntity entity) {
 		LoginUserEntity userEntity = authRepository.findByEmail(entity.getEmail());
@@ -48,6 +53,25 @@ public class AuthService {
 		else {
 			System.err.println("AuthService::registerUser() -> Something went worng");
 			responseModel = new ResponseModel(false,"Something went wrong");
+		}
+		return responseModel;
+	}
+	
+	
+	public ResponseModel loginAdmin(AdminEntity entity) {
+		AdminEntity adminEntity = adminAuthRepository.findByEmail(entity.getEmail());
+		ResponseModel responseModel ; 
+		if(adminEntity != null) {
+			
+			System.out.println("AuthService::loginAdmin() ENTITY-> "+adminEntity);
+			if(entity.getPassword().equals(adminEntity.getPassword())) {
+				responseModel = new ResponseModel(true,"Logged In..");
+			} else {
+				responseModel = new ResponseModel(false,"Invalid Username or Password");
+			}
+		} else {
+			System.err.println("AuthService::loginAdmin() -> Something went worng");
+			responseModel = new ResponseModel(false,"No account found");
 		}
 		return responseModel;
 	}
