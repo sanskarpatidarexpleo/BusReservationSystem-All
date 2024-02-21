@@ -36,25 +36,25 @@ public class AdminController {
 	@PostMapping(path="/adminDashboard")
 	public String adminPage(@RequestParam String email,String password , Model ml) {
 		
-//		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL+"/loginAdmin")
-//		        .queryParam("email", email)
-//		        .queryParam("password", password);
-//		String url = builder.toUriString();
-//		
-//		ResponseEntity<ResponseModel> response = restTemplate.getForEntity(url, ResponseModel.class);
-//		String result = response.getBody().message;
-//		
-//		if(response.getBody().status) {
-//			//Success
-//			
-//		} else {
-//			//Failed
-//		}
-//		ml.addAttribute("status",result);
-		return "AdminDashboard";
+		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL+"/adminLogin")
+		        .queryParam("email", email)
+		        .queryParam("password", password);
+		String url = builder.toUriString();
+		
+		ResponseEntity<ResponseModel> response = restTemplate.getForEntity(url, ResponseModel.class);
+		ResponseModel responseModel = response.getBody();
+
+		 if (responseModel != null && responseModel.status) {
+		        ml.addAttribute("status", responseModel.message);
+		        return "AdminDashboard";
+		    } else {
+		        ml.addAttribute("error", "Invalid username or password");
+		        return "AdminLogin";
+		    }
 	}
 	@GetMapping(path="/addBus")
 	public String AddBus() {
+		
 		return "AddBus";
 	}
 
@@ -76,10 +76,16 @@ public class AdminController {
 	        busList.add(new BusList("Mh25","Komal",30,"pune","Latur",LocalDate.of(2024, 2, 20),LocalTime.of(11,50),550));
 		    busList.add(new BusList("Mh26","Saad",30,"pune","Latur",LocalDate.of(2024, 2, 20),LocalTime.of(12,50),650));
 	        busList.add(new BusList("Mh24", "Rudra", 30, "Pune", "Latur", LocalDate.of(2024, 2, 20), LocalTime.of(10, 50), 50));
-	        busList.add(new BusList("Mh24", "Rudra", 30, "Pune", "Latur", LocalDate.of(2024, 2, 20), LocalTime.of(10, 50), 50));
-	        busList.add(new BusList("Mh24", "Rudra", 30, "Pune", "Latur", LocalDate.of(2024, 2, 20), LocalTime.of(10, 50), 50));
 	        return busList;
 	    }
+	  
+	  @GetMapping(path="/seeCustomers")
+	  public String showCustomerList(Model model) {
+		  
+		  
+		  
+		  return "customerList";
+	  }
 	  
 	  
 	

@@ -68,8 +68,8 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#addBus">Add Buses</a>
-        <a href="seeAllBuses">See All Buses</a>
+        <a href="addBus">Add Buses</a>
+        <a href="seeBuses">See All Buses</a>
         <a href="#showCustomerList">Show Customer List</a>
     </div>
     
@@ -91,7 +91,9 @@
     </div>
     
     <script>
-    
+    function myfunction(){
+    	alert("Bus Added Sucessfully");
+    }
     </script>
 </body>
 </html>
