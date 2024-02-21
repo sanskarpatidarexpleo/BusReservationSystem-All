@@ -57,6 +57,9 @@
                 <input type="submit" value="Login">
             </form>
         </div>
+        <% if (request.getAttribute("error") != null) { %>
+        <p style="color: red;"><%= request.getAttribute("error") %></p>
+    <% } %>
     </div>
 </body>
 </html>

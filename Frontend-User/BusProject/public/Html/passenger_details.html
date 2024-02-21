@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passenger Details</title>
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Passenger Details</h1>
+    <div id="selected-seats" class="mt-3">
+        <p>Selected Seats: <span id="selected-seats-list"></span></p>
+    </div>
+
+    <form id="passenger-form" class="mt-4">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+    </form>
+</div>
+
+<script>
+    // Retrieve selected seats from local storage
+    var selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+    var selectedSeatsList = document.getElementById("selected-seats-list");
+    selectedSeatsList.textContent = selectedSeats.join(", ");
+
+    // Form submission event listener
+    document.getElementById("passenger-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get passenger details from the form
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var age = document.getElementById("age").value;
+
+        // Store passenger details in local storage
+        localStorage.setItem("passengerDetails", JSON.stringify({ name: name, phone: phone, age: age }));
+
+        // Redirect to the journey details page
+        window.location.href = "journey_details.html";
+    });
+</script>
+</body>
+</html>

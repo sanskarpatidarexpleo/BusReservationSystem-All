@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservation Ticket</title>
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    /* Additional styles for ticket appearance */
+    #ticket {
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <a href="dashboard.html" class="btn btn-primary mt-3">Homepage</a>
+    <div id="ticket" class="mt-4 p-4">
+        <h1 class="text-center mb-4">Reservation Ticket</h1>
+
+        <div id="journey-details">
+            <p><strong>Name:</strong> <span id="passenger-name"></span></p>
+            <p><strong>Phone Number:</strong> <span id="passenger-phone"></span></p>
+            <p><strong>Age:</strong> <span id="passenger-age"></span></p>
+            <p><strong>Selected Seats:</strong> <span id="selected-seats"></span></p>
+        </div>
+
+        <a id="download-link" download="reservation_ticket.txt" href="#" style="display: none;" class="btn btn-success mt-4">Download Reservation Ticket</a>
+
+        <!-- Add cancel booking button -->
+        <button id="cancel-booking" class="btn btn-danger mt-4">Cancel Booking</button>
+    </div>
+</div>
+
+<script>
+    // Retrieve passenger details from local storage
+    var passengerDetails = JSON.parse(localStorage.getItem("passengerDetails"));
+    document.getElementById("passenger-name").textContent = passengerDetails.name;
+    document.getElementById("passenger-phone").textContent = passengerDetails.phone;
+    document.getElementById("passenger-age").textContent = passengerDetails.age;
+
+    // Retrieve selected seats from local storage
+    var selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+    document.getElementById("selected-seats").textContent = selectedSeats.join(", ");
+
+    // Generate text for reservation ticket
+    var ticketText = "Reservation Ticket\n\n";
+    ticketText += "Name: " + passengerDetails.name + "\n";
+    ticketText += "Phone Number: " + passengerDetails.phone + "\n";
+    ticketText += "Age: " + passengerDetails.age + "\n";
+    ticketText += "Selected Seats: " + selectedSeats.join(", ") + "\n";
+
+    // Create a Blob with the ticket text
+    var ticketBlob = new Blob([ticketText], { type: "text/plain" });
+    var ticketUrl = URL.createObjectURL(ticketBlob);
+
+    // Set download link href and make it visible
+    var downloadLink = document.getElementById("download-link");
+    downloadLink.href = ticketUrl;
+    downloadLink.style.display = "block";
+
+    // Cancel booking functionality
+    document.getElementById("cancel-booking").addEventListener("click", function() {
+        // Clear local storage
+        localStorage.removeItem("passengerDetails");
+        localStorage.removeItem("selectedSeats");
+
+        // Redirect to homepage or any other appropriate page
+        window.location.href = "dashboard.html"; // Replace "index.html" with the appropriate URL
+    });
+</script>
+</body>
+</html>

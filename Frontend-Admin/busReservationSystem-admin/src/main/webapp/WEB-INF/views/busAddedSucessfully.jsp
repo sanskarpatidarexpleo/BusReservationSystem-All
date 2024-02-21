@@ -68,8 +68,8 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#addBus">Add Buses</a>
-        <a href="seeAllBuses">See All Buses</a>
+        <a href="addBus">Add Buses</a>
+        <a href="seeBuses">See All Buses</a>
         <a href="#showCustomerList">Show Customer List</a>
     </div>
     
@@ -77,7 +77,7 @@
         <h2>Add More Busses</h2>
         <div id="addBus" class="add-bus-form">
             <h3>Add Bus</h3>
-            <form id="addBusForm" action="addingBus" method="POST">
+            <form id="addBusForm" action="" method="POST">
                 <input type="text" name="busName" placeholder="Bus Name" required><br>
                 <input type="text" name="busNumber" placeholder="Bus Number" required><br>
                 <input type="number" name="seatsAvailable" placeholder="Bus seats" required><br>
@@ -91,7 +91,9 @@
     </div>
     
     <script>
-    
+    function myfunction(){
+    	alert("Bus Added Sucessfully");
+    }
     </script>
 </body>
 </html>

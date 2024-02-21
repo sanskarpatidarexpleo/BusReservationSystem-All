@@ -1,9 +1,18 @@
 package com.expleo.busReservationSystem.entites;
 
+import java.util.Date;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+/*
+ * Entity class contains data of user booking like user's name , mobile etc
+ * and travelId is the id of the bus which he booked.
+ * This travelId is reference to id of the bus from TravelsEntity.
+ */
 
 @Entity(name = "tbl_bookings")
 public class BookingsEntity {
@@ -11,26 +20,40 @@ public class BookingsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name = "user_id")
 	private int userId;
+	
+	@Column(name = "travel_id")
 	private int travelId;
+	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "mobile")
 	private String mobile;
+	
+	@Column(name = "gender")
 	private String gender;
-	private String status;
+	
+	@Column(name = "date")
+	private Date date;
+	
+	@Column(name = "is_booking_active")
 	private boolean isBookingActive;
 	
 	public BookingsEntity() {
 		
 	}
 
-	public BookingsEntity(int userId, int travelId, String name, String mobile, String gender, String status,
-			boolean isBookingActive) {
+	public BookingsEntity(int userId, int travelId, String name, String mobile, String gender,
+			Date date , boolean isBookingActive) {
 		this.userId = userId;
 		this.travelId = travelId;
 		this.name = name;
 		this.mobile = mobile;
 		this.gender = gender;
-		this.status = status;
+		this.date = date;
 		this.isBookingActive = isBookingActive;
 	}
 
@@ -82,13 +105,6 @@ public class BookingsEntity {
 		this.gender = gender;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	public boolean isBookingActive() {
 		return isBookingActive;
@@ -98,10 +114,22 @@ public class BookingsEntity {
 		this.isBookingActive = isBookingActive;
 	}
 
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
-		return "BookingsEntity [ id=" + id + ", userId=" + userId + ", travelId=" + travelId + ", name=" + name
-				+ ", mobile=" + mobile + ", gender=" + gender + ", status=" + status + ", isBookingActive="
-				+ isBookingActive + " ]";
+		return "BookingsEntity [id=" + id + ", userId=" + userId + ", travelId=" + travelId + ", name=" + name
+				+ ", mobile=" + mobile + ", gender=" + gender + ", date=" + date + ", isBookingActive="
+				+ isBookingActive + "]";
 	}
+
+	
+	
 }

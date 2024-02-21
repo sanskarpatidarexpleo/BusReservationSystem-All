@@ -4,68 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Reservation System</title>
-   
-    <style>body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.reservation-box {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 40px; /* Increased padding */
-    width: 400px; /* Increased width */
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-.input-group input[type="text"],
-.input-group input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 20px; /* Increased padding */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+	body {
+    	    font-family: Arial, sans-serif;
+    	    background-color: #f2f2f2;
+    	    margin: 0;
+    	    padding: 0;
+	}
+        .container {
+            margin-top: 50px;
+            max-width: 400px; /* Adjust the max-width as needed */
+        }
+        .reservation-box {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px; /* Add spacing between input groups */
+        }
+        .input-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group select,
+        .input-group input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .input-group select:focus,
+        .input-group input[type="date"]:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            border-color: #80bdff;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
     </style>
     
     <script>// Get today's date
@@ -84,26 +76,35 @@ button[type="submit"]:hover {
 </head>
 <!-- <body>
     <div class="container">
-       
         <div class="reservation-box">
             <form action="busAvailable.html">
-               
                 <div class="input-group">
                     <label for="source">Source City:</label>
-                    <input type="text" id="source" name="source" required>
+                    <select id="source" name="source" class="form-control" required>
+                        <option value="">Select Source City</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Goa">Goa</option>
+                    </select>
                 </div>
                 <div class="input-group">
                     <label for="destination">Destination City:</label>
-                    <input type="text" id="destination" name="destination" required>
+                    <select id="destination" name="destination" class="form-control" required>
+                        <option value="">Select Destination City</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
+                    </select>
                 </div>
                 <div class="input-group">
                     <label for="date">Travel Date:</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="date" name="date" class="form-control" required>
                 </div>
-                <button type="submit">Search</button>
+                <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
     </div>
+<<<<<<< HEAD
     
 </body>
 </html> -->
@@ -140,5 +141,7 @@ button[type="submit"]:hover {
             </form>
         </div>
     </div>
+=======
+>>>>>>> 92c5d4fd0e8b767706e75ca4f03e0829b73662e3
 </body>
 </html>
