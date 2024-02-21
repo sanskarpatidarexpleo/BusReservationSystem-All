@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.expleo.busReservationSystem.ResponseModel;
+import com.expleo.busReservationSystem.entites.AdminEntity;
 import com.expleo.busReservationSystem.entites.LoginUserEntity;
 import com.expleo.busReservationSystem.services.AuthService;
 
@@ -25,6 +26,12 @@ public class AuthController {
 	@GetMapping("/register")
 	public ResponseEntity<ResponseModel> registerUser(LoginUserEntity entity){
 		ResponseModel responseModel = authService.registerUser(entity);
+		return new ResponseEntity<ResponseModel>(responseModel,HttpStatus.OK);
+	}
+	
+	@GetMapping("/adminLogin")
+	public ResponseEntity<ResponseModel> loginAdmin(AdminEntity entity){
+		ResponseModel responseModel = authService.loginAdmin(entity);
 		return new ResponseEntity<ResponseModel>(responseModel,HttpStatus.OK);
 	}
 }
