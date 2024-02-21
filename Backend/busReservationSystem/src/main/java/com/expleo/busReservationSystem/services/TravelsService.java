@@ -7,12 +7,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.expleo.busReservationSystem.ResponseModel;
 import com.expleo.busReservationSystem.db.BookingRepository;
 import com.expleo.busReservationSystem.db.TravelRepository;
 import com.expleo.busReservationSystem.entites.TravelBookingModel;
 import com.expleo.busReservationSystem.entites.TravelBookingsEntity;
 import com.expleo.busReservationSystem.entites.TravelsEntity;
+import com.expleo.busReservationSystem.responseModels.ResponseModel;
 
 /*
  * CRUD Operations on Travels

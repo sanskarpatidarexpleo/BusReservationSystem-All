@@ -7,6 +7,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/*
+ * By Admin -
+ * Act as a medium between users booking and travel
+ * Like which user books which travel
+ * This entity will be used to fetch all the bookings of user related to that travel.
+ */
+
 @Entity(name = "tbl_travel_bookings")
 public class TravelBookingsEntity {
 

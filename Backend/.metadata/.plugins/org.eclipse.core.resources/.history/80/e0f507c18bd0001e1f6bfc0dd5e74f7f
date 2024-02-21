@@ -1,0 +1,143 @@
+package com.expleo.busReservationSystem.entites;
+
+import java.time.LocalTime;
+import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity(name = "tbl_travels")
+public class TravelsEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String travelName;
+	private String travelfrom;
+	private String travelTo;
+	private String busNo;
+	private LocalTime departureTime;
+	private LocalTime arrivalTime;
+	private int totalSeats;
+	private float price;
+	private Date createdAt;
+	private Date deletedAt;
+	
+	public TravelsEntity() {
+		
+	}
+
+	public TravelsEntity(String travelName, String travelfrom, String travelTo, String busNo, LocalTime departureTime,
+			LocalTime arrivalTime, int totalSeats, float price, Date createdAt, Date deletedAt) {
+		super();
+		this.travelName = travelName;
+		this.travelfrom = travelfrom;
+		this.travelTo = travelTo;
+		this.busNo = busNo;
+		this.departureTime = departureTime;
+		this.arrivalTime = arrivalTime;
+		this.totalSeats = totalSeats;
+		this.price = price;
+		this.createdAt = createdAt;
+		this.deletedAt = deletedAt;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTravelName() {
+		return travelName;
+	}
+
+	public void setTravelName(String travelName) {
+		this.travelName = travelName;
+	}
+
+	public String getTravelfrom() {
+		return travelfrom;
+	}
+
+	public void setTravelfrom(String travelfrom) {
+		this.travelfrom = travelfrom;
+	}
+
+	public String getTravelTo() {
+		return travelTo;
+	}
+
+	public void setTravelTo(String travelTo) {
+		this.travelTo = travelTo;
+	}
+
+	public String getBusNo() {
+		return busNo;
+	}
+
+	public void setBusNo(String busNo) {
+		this.busNo = busNo;
+	}
+
+	public LocalTime getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(LocalTime departureTime) {
+		this.departureTime = departureTime;
+	}
+
+	public LocalTime getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(LocalTime arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
+	public int getTotalSeats() {
+		return totalSeats;
+	}
+
+	public void setTotalSeats(int totalSeats) {
+		this.totalSeats = totalSeats;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getDeletedAt() {
+		return deletedAt;
+	}
+
+	public void setDeletedAt(Date deletedAt) {
+		this.deletedAt = deletedAt;
+	}
+
+	@Override
+	public String toString() {
+		return "TravelsEntity [id=" + id + ", travelName=" + travelName + ", travelfrom=" + travelfrom + ", travelTo="
+				+ travelTo + ", busNo=" + busNo + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime
+				+ ", totalSeats=" + totalSeats + ", price=" + price + ", createdAt=" + createdAt + ", deletedAt="
+				+ deletedAt + "]";
+	}
+	
+}
