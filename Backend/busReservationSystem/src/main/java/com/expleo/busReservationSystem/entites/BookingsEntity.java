@@ -8,11 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-/*
- * Entity class contains data of user booking like user's name , mobile etc
- * and travelId is the id of the bus which he booked.
- * This travelId is reference to id of the bus from TravelsEntity.
- */
 
 @Entity(name = "tbl_bookings")
 public class BookingsEntity {

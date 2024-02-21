@@ -31,14 +31,28 @@ public class UserController {
 	
 	@GetMapping(path = "/addUsers")
 	public String addUserForm() {
-	    return "Register"; // Assuming "register.jsp" is your registration form page
+	    return "Register";
 	}
 	
 	@PostMapping(path = "/addUsers")
-	public String addUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
-	    // Add logic to save the user to the database
-	    return "redirect:/Login"; // Redirect to the login page after adding the user
+	public String addUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model ml) {
+		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL+"/register")
+		        .queryParam("username", username)
+		        .queryParam("email", email)
+		        .queryParam("password", password);
+		String url = builder.toUriString();
+		ResponseEntity<ResponseModel> response = restTemplate.getForEntity(url, ResponseModel.class);
+		ResponseModel responseModel = response.getBody();
+		 if (responseModel != null && responseModel.status) {
+		        ml.addAttribute("status","Registration Sucessful. Please Log In ");
+		        return "redirect:/Login";
+		    } else {
+		        ml.addAttribute("error", "Registration failed. Please try again");
+		        return "Register";
+		    }
 	}
+	
+	//----------------------------------------------------------------------------------------------------------
 	@PostMapping(path="/userDashboard")
     public String registerUser(@RequestParam String email,String password,Model ml) {
 
@@ -59,5 +73,20 @@ public class UserController {
 		    }
        
     }
+	
+	@GetMapping(path="/bookTravelFrom")
+	public String bookTravelform() {
+		return "BookTravelForm";
+	}
+	
+	
+	@PostMapping(path="/submitBooking")
+	public String getTravelForm() {
+		return "BookedSucessfull";
+		
+	}
+	
+	
+	
 	
 }

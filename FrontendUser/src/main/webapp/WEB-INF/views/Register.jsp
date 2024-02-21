@@ -60,6 +60,9 @@
 <body>
     <div class="container">
         <h2>Add User</h2>
+         <% if (request.getAttribute("status") != null) { %>
+            <p style="color: green;"><%= request.getAttribute("status") %></p>
+        <% } %>
         <form id="addUserForm" action="addUsers" method="POST">
             <div class="input-group">
                 <label for="username">Username:</label>
@@ -76,5 +79,8 @@
             <button type="submit" class="button">Add User</button>
         </form>
     </div>
+    
+    
+    
 </body>
 </html>

@@ -50,8 +50,8 @@
         <h1>User Dashboard</h1>
         
         <div class="functionality">
-            <h2>1. Search and Book Travels</h2>
-            <a href="search_travel.html" class="button">Search and Book</a>
+            <h2>1. Search/Book Travels</h2>
+            <a href="bookTravelFrom" class="button">Search and Book</a>
         </div>
 
         <div class="functionality">

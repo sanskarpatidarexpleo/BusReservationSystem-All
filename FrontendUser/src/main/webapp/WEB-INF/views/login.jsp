@@ -63,6 +63,9 @@
 <body>
     <div class="container">
         <h2>Login</h2>
+        <% if (request.getAttribute("error") != null) { %>
+            <p style="color: red;"><%= request.getAttribute("error") %></p>
+        <% } %>
         <form action="userDashboard" method="POST">
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" required>
