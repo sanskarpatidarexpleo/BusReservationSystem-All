@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,14 +64,16 @@ public class AdminController {
 	    public String AddingBus(BusList b,Model model) {
 		  UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL+"/addTravel")
 			        .queryParam("travelName",b.getTravelName())
-			        .queryParam("travelform",b.getTravelfrom())
+			        .queryParam("travelFrom",b.getTravelFrom())
 			        .queryParam("travelTo", b.getTravelTo())
 			        .queryParam("busNo", b.getBusNo())
 			        .queryParam("departureTime", b.getDepartureTime())
 			        .queryParam("arrivalTime", b.getArrivalTime())
 			        .queryParam("totalSeats", b.getTotalSeats())
-			        .queryParam("amount", b.getAmount());
+			        .queryParam("price", b.getPrice());
+			        
 			String url = builder.toUriString();
+			System.out.println(b.toString());
 			
 			ResponseEntity<ResponseModel> response = restTemplate.postForEntity(url,b, ResponseModel.class);
 			ResponseModel responseModel = response.getBody();
@@ -77,13 +81,19 @@ public class AdminController {
 	        return "AddBus";
 	    }
 	  
-//	  @GetMapping("/seeBuses")
-//	  public String showBusses(Model model) {
-//		  Iterable<BusList> bs = getIterableBusList();
-//		  model.addAttribute("bs", bs);
-//		  System.out.println(bs);
-//		  return "ShowAllBuses";
-//	  }
+	  @GetMapping("/seeBuses")
+	  public String showBusses(Model model) {
+		  
+		  ResponseEntity<List<BusList>> response = restTemplate.exchange(
+		            BASE_URL + "/getAllTravels",
+		            HttpMethod.GET,
+		            null,
+		            new ParameterizedTypeReference<List<BusList>>() {});
+
+		  Iterable<BusList> busList = response.getBody();
+		    model.addAttribute("busList", busList);
+		    return "ShowAllBuses";
+	  }
 
 //	  private Iterable<BusList> getIterableBusList() {
 //	        List<BusList> busList = new ArrayList<>();

@@ -80,13 +80,14 @@
             <form id="addBusForm" action="addingBus" method="POST">
                 <input type="text" name="travelName" placeholder="Bus Name" required><br>
                 <input type="text" name="busNo" placeholder="Bus Number" required><br>
-                <input type="number" name="seatsAvailable" placeholder="Bus seats" required><br>
-                <input type="text" name="travelform" placeholder="Source" required><br>
+                <input type="text" name="travelFrom" placeholder="Source" required><br>
                 <input type="text" name="travelTo" placeholder="Destination" required><br>
+                <label for="departureTime" class="placeholder">Departure Time</label>
                 <input type="time" name="departureTime" placeholder="Departure Time" required><br>
+                <label for="departureTime" class="placeholder">Arrival time</label>
                 <input type="time" name="arrivalTime" placeholder="Arrival Time" required><br>
                 <input type="text" name="totalSeats" placeholder="TotalSeats" required><br>
-                <input type="text" name="amount" placeholder="amount" required><br>
+                <input type="text" name="price" placeholder="amount" required><br>
                 <input type="submit" onclick="myfunction()" value="Add Bus">
             </form>
         </div>

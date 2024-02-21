@@ -52,32 +52,32 @@
     <table>
         <thead>
             <tr>
-                <th>Bus Name</th>
                 <th>Bus Number</th>
-                <th>Seats Available</th>
-                <th>Source</th>
-                <th>Destination</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Price</th>
+                <th>Bus Name</th>
+                <th>Travel From</th>
+                <th>Travel To</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Total Seats available</th>
+                <th>Price per seat </th>
                 <!-- Add more columns as needed -->
             </tr>
         </thead>
         <tbody>  
            <% 
             
-            Iterable<BusList> bs = (Iterable<BusList>)request.getAttribute("bs");
-            for(BusList bus: bs){
+            Iterable<BusList> busList = (Iterable<BusList>)request.getAttribute("busList");
+            for(BusList bus: busList){
             %>
             <tr>
-                <td><%=bus.getBusName()%></td>
-                <td><%=bus.getBusNumber()%></td>
-                <td><%=bus.getSeatsAvailable()%></td>
-                <td><%=bus.getSource()%></td>
-                <td><%=bus.getDestination()%></td>
-                <td><%=bus.getDeparturedate()%></td>
-                <td><%=bus.getDepartureTime()%></td>
-                <td><%=bus.getPrice()%></td>
+                <td><%=bus.getBusNo() %></td>
+                <td><%=bus.getTravelName() %></td>
+                <td><%=bus.getTravelFrom() %></td>
+                <td><%=bus.getTravelTo() %></td>
+                <td><%=bus.getDepartureTime() %></td>
+                <td><%=bus.getArrivalTime() %></td>
+                <td><%=bus.getTotalSeats() %></td>
+                <td><%=bus.getPrice() %></td>
             </tr>
 			  <%
             }
