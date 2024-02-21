@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Add User</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             max-width: 400px;
-            margin: 100px auto;
+            margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -24,53 +26,55 @@
             margin-bottom: 20px;
         }
 
-        label {
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
             display: block;
             margin-bottom: 5px;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        .input-group input {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
         }
 
-        button {
+        .button {
             width: 100%;
             padding: 10px;
             background-color: #007bff;
+            color: #fff;
             border: none;
             border-radius: 5px;
-            color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
 
-        button:hover {
+        .button:hover {
             background-color: #0056b3;
-        }
-
-        p {
-            text-align: center;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Login</h2>
-        <form action="userDashboard" method="POST">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+        <h2>Add User</h2>
+        <form id="addUserForm" action="addUsers" method="POST">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="button">Add User</button>
         </form>
-        <p>Don't have an account? <a href="addUsers">Register here</a></p>
     </div>
 </body>
 </html>

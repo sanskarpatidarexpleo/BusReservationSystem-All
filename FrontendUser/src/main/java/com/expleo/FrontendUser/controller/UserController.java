@@ -24,11 +24,21 @@ public class UserController {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@GetMapping(path = "/login")
+	@GetMapping(path = "/Login")
 	public String userLogin() {
 		return "login";
 	}
 	
+	@GetMapping(path = "/addUsers")
+	public String addUserForm() {
+	    return "Register"; // Assuming "register.jsp" is your registration form page
+	}
+	
+	@PostMapping(path = "/addUsers")
+	public String addUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
+	    // Add logic to save the user to the database
+	    return "redirect:/Login"; // Redirect to the login page after adding the user
+	}
 	@PostMapping(path="/userDashboard")
     public String registerUser(@RequestParam String email,String password,Model ml) {
 
@@ -50,8 +60,4 @@ public class UserController {
        
     }
 	
-	 /*@GetMapping("/login1")
-	    public String login() {
-	        return "login";
-	    }*/
 }
