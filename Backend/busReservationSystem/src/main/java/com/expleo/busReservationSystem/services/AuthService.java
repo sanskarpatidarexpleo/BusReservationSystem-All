@@ -3,11 +3,11 @@ package com.expleo.busReservationSystem.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.expleo.busReservationSystem.ResponseModel;
 import com.expleo.busReservationSystem.db.AdminAuthRepository;
 import com.expleo.busReservationSystem.db.AuthRepository;
-import com.expleo.busReservationSystem.entites.AdminEntity;
-import com.expleo.busReservationSystem.entites.LoginUserEntity;
+import com.expleo.busReservationSystem.entites.AdminLoginEntity;
+import com.expleo.busReservationSystem.entites.UserLoginEntity;
+import com.expleo.busReservationSystem.responseModels.ResponseModel;
 
 @Service
 public class AuthService {
@@ -18,8 +18,8 @@ public class AuthService {
 	@Autowired
 	AdminAuthRepository adminAuthRepository;
 	
-	public ResponseModel loginUser(LoginUserEntity entity) {
-		LoginUserEntity userEntity = authRepository.findByEmail(entity.getEmail());
+	public ResponseModel loginUser(UserLoginEntity entity) {
+		UserLoginEntity userEntity = authRepository.findByEmail(entity.getEmail());
 		ResponseModel responseModel ; 
 		if(userEntity != null) {
 			
@@ -38,15 +38,15 @@ public class AuthService {
 	
 	
 	
-	public ResponseModel registerUser(LoginUserEntity entity) {
-		LoginUserEntity validateEntity = authRepository.findByEmail(entity.getEmail());
+	public ResponseModel registerUser(UserLoginEntity entity) {
+		UserLoginEntity validateEntity = authRepository.findByEmail(entity.getEmail());
 		ResponseModel responseModel ; 
 		if(validateEntity != null) {
 			responseModel = new ResponseModel(false , "User already registered..");
 			return responseModel;
 		}
 		
-		LoginUserEntity userEntity = authRepository.save(entity);
+		UserLoginEntity userEntity = authRepository.save(entity);
 		if(userEntity != null) {
 			responseModel = new ResponseModel(true,"User registered..");
 		}
@@ -58,13 +58,13 @@ public class AuthService {
 	}
 	
 	
-	public ResponseModel loginAdmin(AdminEntity entity) {
-		AdminEntity adminEntity = adminAuthRepository.findByEmail(entity.getEmail());
+	public ResponseModel loginAdmin(AdminLoginEntity entity) {
+		AdminLoginEntity adminLoginEntity = adminAuthRepository.findByEmail(entity.getEmail());
 		ResponseModel responseModel ; 
-		if(adminEntity != null) {
+		if(adminLoginEntity != null) {
 			
-			System.out.println("AuthService::loginAdmin() ENTITY-> "+adminEntity);
-			if(entity.getPassword().equals(adminEntity.getPassword())) {
+			System.out.println("AuthService::loginAdmin() ENTITY-> "+adminLoginEntity);
+			if(entity.getPassword().equals(adminLoginEntity.getPassword())) {
 				responseModel = new ResponseModel(true,"Logged In..");
 			} else {
 				responseModel = new ResponseModel(false,"Invalid Username or Password");

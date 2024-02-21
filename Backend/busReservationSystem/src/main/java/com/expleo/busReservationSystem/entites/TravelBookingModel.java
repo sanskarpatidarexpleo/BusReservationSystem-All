@@ -26,6 +26,4 @@ public class TravelBookingModel {
 		this.bookingsEntity = bookingsEntity;
 	}
 	
-	
-	
 }

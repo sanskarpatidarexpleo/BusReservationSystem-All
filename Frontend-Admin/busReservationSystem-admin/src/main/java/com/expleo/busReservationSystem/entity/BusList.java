@@ -1,56 +1,48 @@
 package com.expleo.busReservationSystem.entity;
 
-
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.Id;
-
-//@Entity
 public class BusList {
-//	@Id
-	private String busNumber;
-	private String busName;
-	private int seatsAvailable;
-	private String source;
-	private String destination;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate departuredate;
+	
+
+	private int id;
+	private String travelName;
+	private String travelfrom;
+	private String travelTo;
+	private String busNo;
 	private LocalTime departureTime;
-	private float price;
-	public String getBusName() {
-		return busName;
+	private LocalTime arrivalTime;
+	private int totalSeats;
+	private float amount;
+	public int getId() {
+		return id;
 	}
-	public void setBusName(String busName) {
-		this.busName = busName;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getBusNumber() {
-		return busNumber;
+	public String getTravelName() {
+		return travelName;
 	}
-	public void setBusNumber(String busNumber) {
-		this.busNumber = busNumber;
+	public void setTravelName(String travelName) {
+		this.travelName = travelName;
 	}
-	public String getSource() {
-		return source;
+	public String getTravelfrom() {
+		return travelfrom;
 	}
-	public void setSource(String source) {
-		this.source = source;
+	public void setTravelfrom(String travelfrom) {
+		this.travelfrom = travelfrom;
 	}
-	public String getDestination() {
-		return destination;
+	public String getTravelTo() {
+		return travelTo;
 	}
-	public void setDestination(String destination) {
-		this.destination = destination;
+	public void setTravelTo(String travelTo) {
+		this.travelTo = travelTo;
 	}
-	public LocalDate getDeparturedate() {
-		return departuredate;
+	public String getBusNo() {
+		return busNo;
 	}
-	public void setDeparturedate(LocalDate departuredate) {
-		this.departuredate = departuredate;
+	public void setBusNo(String busNo) {
+		this.busNo = busNo;
 	}
 	public LocalTime getDepartureTime() {
 		return departureTime;
@@ -58,44 +50,52 @@ public class BusList {
 	public void setDepartureTime(LocalTime departureTime) {
 		this.departureTime = departureTime;
 	}
-	
-	public BusList() {
-		
+	public LocalTime getArrivalTime() {
+		return arrivalTime;
 	}
-	public int getSeatsAvailable() {
-		return seatsAvailable;
+	public void setArrivalTime(LocalTime arrivalTime) {
+		this.arrivalTime = arrivalTime;
 	}
-	public void setSeatsAvailable(int seatsAvailable) {
-		this.seatsAvailable = seatsAvailable;
+	public int getTotalSeats() {
+		return totalSeats;
 	}
-	public float getPrice() {
-		return price;
+	public void setTotalSeats(int totalSeats) {
+		this.totalSeats = totalSeats;
 	}
-	public void setPrice(float price) {
-		this.price = price;
+	public float getAmount() {
+		return amount;
 	}
-	public BusList(String busNumber, String busName, int seatsAvailable, String source, String destination,
-			LocalDate departuredate, LocalTime departureTime, float price) {
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
+	public BusList(int id, String travelName, String travelfrom, String travelTo, String busNo, LocalTime departureTime,
+			LocalTime arrivalTime, int totalSeats, float amount) {
 		super();
-		this.busNumber = busNumber;
-		this.busName = busName;
-		this.seatsAvailable = seatsAvailable;
-		this.source = source;
-		this.destination = destination;
-		this.departuredate = departuredate;
+		this.id = id;
+		this.travelName = travelName;
+		this.travelfrom = travelfrom;
+		this.travelTo = travelTo;
+		this.busNo = busNo;
 		this.departureTime = departureTime;
-		this.price = price;
+		this.arrivalTime = arrivalTime;
+		this.totalSeats = totalSeats;
+		this.amount = amount;
+	}
+	public BusList() {
+		super();
 	}
 	@Override
 	public String toString() {
-		return "BusList [busNumber=" + busNumber + ", busName=" + busName + ", seatsAvailable=" + seatsAvailable
-				+ ", source=" + source + ", destination=" + destination + ", departuredate=" + departuredate
-				+ ", departureTime=" + departureTime + ", price=" + price + "]";
+		return "BusList [id=" + id + ", travelName=" + travelName + ", travelfrom=" + travelfrom + ", travelTo="
+				+ travelTo + ", busNo=" + busNo + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime
+				+ ", totalSeats=" + totalSeats + ", amount=" + amount + "]";
 	}
-	
-	
-	
+
 	
 	
 
+
+	
+	
+	
 }

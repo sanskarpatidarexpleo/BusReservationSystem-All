@@ -3,10 +3,16 @@ package com.expleo.busReservationSystem.entites;
 import java.time.LocalTime;
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+/* By Admin - Add a new bus/travel
+ * It is a entity class which contains the data of travels/bus
+ * Whenever an admin add a new bus the bus data should be stored like it.
+ */
 
 @Entity(name = "tbl_travels")
 public class TravelsEntity {
@@ -14,33 +20,52 @@ public class TravelsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name = "travel_name")
 	private String travelName;
-	private String travelfrom;
+	
+	@Column(name = "travel_from")
+	private String travelFrom;
+	
+	@Column(name = "travel_to")
 	private String travelTo;
+	
+	@Column(name = "bus_no")
 	private String busNo;
+	
+	@Column(name = "departure_time")
 	private LocalTime departureTime;
+	
+	@Column(name = "arrival_time")
 	private LocalTime arrivalTime;
-	private int isTodayAvailable;
-	private int travelType;
+	
+	@Column(name = "total_seats")
 	private int totalSeats;
+	
+	@Column(name = "price")
+	private float price;
+	
+	@Column(name = "created_at")
 	private Date createdAt;
+	
+	@Column(name = "deleted_at")
 	private Date deletedAt;
 	
 	public TravelsEntity() {
 		
 	}
-	
+
 	public TravelsEntity(String travelName, String travelfrom, String travelTo, String busNo, LocalTime departureTime,
-			LocalTime arrivalTime, int isTodayAvailable, int travelType, int totalSeats, Date createdAt, Date deletedAt) {
+			LocalTime arrivalTime, int totalSeats, float price, Date createdAt, Date deletedAt) {
+		super();
 		this.travelName = travelName;
-		this.travelfrom = travelfrom;
+		this.travelFrom = travelfrom;
 		this.travelTo = travelTo;
 		this.busNo = busNo;
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
-		this.isTodayAvailable = isTodayAvailable;
-		this.travelType = travelType;
 		this.totalSeats = totalSeats;
+		this.price = price;
 		this.createdAt = createdAt;
 		this.deletedAt = deletedAt;
 	}
@@ -61,19 +86,19 @@ public class TravelsEntity {
 		this.travelName = travelName;
 	}
 
-	public String getFrom() {
-		return travelfrom;
+	public String getTravelfrom() {
+		return travelFrom;
 	}
 
-	public void setFrom(String travelfrom) {
-		this.travelfrom = travelfrom;
+	public void setTravelfrom(String travelfrom) {
+		this.travelFrom = travelfrom;
 	}
 
-	public String getTo() {
+	public String getTravelTo() {
 		return travelTo;
 	}
 
-	public void setTo(String travelTo) {
+	public void setTravelTo(String travelTo) {
 		this.travelTo = travelTo;
 	}
 
@@ -101,28 +126,20 @@ public class TravelsEntity {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public int isTodayAvailable() {
-		return isTodayAvailable;
-	}
-
-	public void setTodayAvailable(int isTodayAvailable) {
-		this.isTodayAvailable = isTodayAvailable;
-	}
-
-	public int getType() {
-		return travelType;
-	}
-
-	public void setType(int travelType) {
-		this.travelType = travelType;
-	}
-
 	public int getTotalSeats() {
 		return totalSeats;
 	}
 
 	public void setTotalSeats(int totalSeats) {
 		this.totalSeats = totalSeats;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public Date getCreatedAt() {
@@ -143,12 +160,10 @@ public class TravelsEntity {
 
 	@Override
 	public String toString() {
-		return "TravelsEntity [ id=" + id + ", travelName=" + travelName + ", from=" + travelfrom + ", to=" + travelTo + ", busNo="
-				+ busNo + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + ", isTodayAvailable="
-				+ isTodayAvailable + ", type=" + travelType + ", totalSeats=" + totalSeats + ", createdAt=" + createdAt
-				+ ", deletedAt=" + deletedAt + " ]";
+		return "TravelsEntity [id=" + id + ", travelName=" + travelName + ", travelfrom=" + travelFrom + ", travelTo="
+				+ travelTo + ", busNo=" + busNo + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime
+				+ ", totalSeats=" + totalSeats + ", price=" + price + ", createdAt=" + createdAt + ", deletedAt="
+				+ deletedAt + "]";
 	}
-	
-	
 	
 }
