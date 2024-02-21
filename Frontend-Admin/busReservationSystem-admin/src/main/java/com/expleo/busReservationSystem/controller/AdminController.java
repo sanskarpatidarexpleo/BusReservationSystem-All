@@ -76,10 +76,16 @@ public class AdminController {
 	        busList.add(new BusList("Mh25","Komal",30,"pune","Latur",LocalDate.of(2024, 2, 20),LocalTime.of(11,50),550));
 		    busList.add(new BusList("Mh26","Saad",30,"pune","Latur",LocalDate.of(2024, 2, 20),LocalTime.of(12,50),650));
 	        busList.add(new BusList("Mh24", "Rudra", 30, "Pune", "Latur", LocalDate.of(2024, 2, 20), LocalTime.of(10, 50), 50));
-	        busList.add(new BusList("Mh24", "Rudra", 30, "Pune", "Latur", LocalDate.of(2024, 2, 20), LocalTime.of(10, 50), 50));
-	        busList.add(new BusList("Mh24", "Rudra", 30, "Pune", "Latur", LocalDate.of(2024, 2, 20), LocalTime.of(10, 50), 50));
 	        return busList;
 	    }
+	  
+	  @GetMapping(path="/seeCustomers")
+	  public String showCustomerList(Model model) {
+		  
+		  
+		  
+		  return "customerList";
+	  }
 	  
 	  
 	

@@ -70,14 +70,14 @@
             for(BusList bus: bs){
             %>
             <tr>
-                <td>${bus.getBusName()}</td>
-                <td>${bus.getBusNumber()}</td>
-                <td>${bus.getSeatsAvailable()}</td>
-                <td>${bus.getSource()}</td>
-                <td>${bus.getDestination()}</td>
-                <td>${bus.getDeparturedate()}</td>
-                <td>${bus.getDepartureTime()}</td>
-                <td>${bus.getPrice()}</td>
+                <td><%=bus.getBusName()%></td>
+                <td><%=bus.getBusNumber()%></td>
+                <td><%=bus.getSeatsAvailable()%></td>
+                <td><%=bus.getSource()%></td>
+                <td><%=bus.getDestination()%></td>
+                <td><%=bus.getDeparturedate()%></td>
+                <td><%=bus.getDepartureTime()%></td>
+                <td><%=bus.getPrice()%></td>
             </tr>
 			  <%
             }
