@@ -5,57 +5,48 @@ body {
     padding: 0;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 30px;
-}
-
-
-
-.reservation-box {
-    background-color: #007bff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="date"] {
-    width: calc(100% - 10px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-button {
-    background-color: #008000;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
+        .container {
+            margin-top: 50px;
+            max-width: 400px; /* Adjust the max-width as needed */
+        }
+        .reservation-box {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px; /* Add spacing between input groups */
+        }
+        .input-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group select,
+        .input-group input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .input-group select:focus,
+        .input-group input[type="date"]:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            border-color: #80bdff;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
