@@ -52,7 +52,7 @@
         <h2>Admin Login</h2>
         <div class="login-form">
             <form action="adminDashboard" method="POST">
-                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="text" name="email" placeholder="UserEmail" required><br>
                 <input type="password" name="password" placeholder="Password" required><br>
                 <input type="submit" value="Login">
             </form>

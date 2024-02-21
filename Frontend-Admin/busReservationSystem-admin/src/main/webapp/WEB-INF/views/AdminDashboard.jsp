@@ -56,7 +56,7 @@
             </a>
         </div>
         <div class="dashboard-block">
-            <a href="seeAllBuses">
+            <a href="seeBuses">
                 <img src="https://th.bing.com/th/id/OIP.2rcK2d7FxN4bkSqUh9zxIwHaHa?w=184&h=184&c=7&r=0&o=5&pid=1.7" alt="See All Buses">
                 <span>See All Buses</span>
             </a>

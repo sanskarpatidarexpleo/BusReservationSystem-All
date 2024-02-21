@@ -85,6 +85,7 @@
                 <input type="text" name="destination" placeholder="Destination" required><br>
                 <input type="date" name="departuredate" placeholder="Date" required><br>
                 <input type="time" name="departureTime" placeholder="Departure Time" required><br>
+                <input type="text" name="Price" placeholder="price" required><br>
                 <input type="submit" value="Add Bus">
             </form>
         </div>

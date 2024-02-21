@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="com.example.nominationWebsite.entity.NomineeDetails" %>
+<%@ page import="com.expleo.busReservationSystem.entity.BusList" %>
  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>See All Busses</title>
+<meta charset="UTF-8">
+<title>See All Buses</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -48,34 +48,41 @@
 </style>
 </head>
 <body>
-    <h2>See All Busses</h2>
+    <h2>See All Buses</h2>
     <table>
         <thead>
             <tr>
-                <th>BusNumber</th>
                 <th>Bus Name</th>
-                <th>SeatsAvailable</th>
+                <th>Bus Number</th>
+                <th>Seats Available</th>
                 <th>Source</th>
                 <th>Destination</th>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Price</th>
                 <!-- Add more columns as needed -->
             </tr>
         </thead>
-        <tbody>
-            <% 
-            Iterable<BusList> itr = (Iterable<BusList>)request.getAttribute("bs");
-            for(BusList b: bs){
+        <tbody>  
+           <% 
+            
+            Iterable<BusList> bs = (Iterable<BusList>)request.getAttribute("bs");
+            for(BusList bus: bs){
             %>
             <tr>
-                <td><%= b %></td>
-                <td><%= .getEid() %></td>
-                <td><%= n.getActivity() %></td>
-                <!-- Add more columns as needed -->
+                <td>${bus.getBusName()}</td>
+                <td>${bus.getBusNumber()}</td>
+                <td>${bus.getSeatsAvailable()}</td>
+                <td>${bus.getSource()}</td>
+                <td>${bus.getDestination()}</td>
+                <td>${bus.getDeparturedate()}</td>
+                <td>${bus.getDepartureTime()}</td>
+                <td>${bus.getPrice()}</td>
             </tr>
-            <%
+			  <%
             }
             %>
+            
         </tbody>
     </table>
 </body>
