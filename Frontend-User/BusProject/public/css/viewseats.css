@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+#seats-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.seat {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+}
+
+.available {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.booked {
+    background-color: #f44336;
+    color: white;
+}
