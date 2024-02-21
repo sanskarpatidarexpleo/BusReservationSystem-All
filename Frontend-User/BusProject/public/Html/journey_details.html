@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservation Ticket</title>
+</head>
+<body>
+<h1>Reservation Ticket</h1>
+
+<div id="journey-details">
+    <h2>Journey Details</h2>
+    <p><strong>Name:</strong> <span id="passenger-name"></span></p>
+    <p><strong>Phone Number:</strong> <span id="passenger-phone"></span></p>
+    <p><strong>Age:</strong> <span id="passenger-age"></span></p>
+    <p><strong>Selected Seats:</strong> <span id="selected-seats"></span></p>
+</div>
+
+<a id="download-link" download="reservation_ticket.txt" href="#" style="display: none;">Download Reservation Ticket</a>
+
+<script>
+    // Retrieve passenger details from local storage
+    var passengerDetails = JSON.parse(localStorage.getItem("passengerDetails"));
+    document.getElementById("passenger-name").textContent = passengerDetails.name;
+    document.getElementById("passenger-phone").textContent = passengerDetails.phone;
+    document.getElementById("passenger-age").textContent = passengerDetails.age;
+
+    // Retrieve selected seats from local storage
+    var selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+    document.getElementById("selected-seats").textContent = selectedSeats.join(", ");
+
+    // Generate text for reservation ticket
+    var ticketText = "Reservation Ticket\n\n";
+    ticketText += "Name: " + passengerDetails.name + "\n";
+    ticketText += "Phone Number: " + passengerDetails.phone + "\n";
+    ticketText += "Age: " + passengerDetails.age + "\n";
+    ticketText += "Selected Seats: " + selectedSeats.join(", ") + "\n";
+
+    // Create a Blob with the ticket text
+    var ticketBlob = new Blob([ticketText], { type: "text/plain" });
+    var ticketUrl = URL.createObjectURL(ticketBlob);
+
+    // Set download link href and make it visible
+    var downloadLink = document.getElementById("download-link");
+    downloadLink.href = ticketUrl;
+    downloadLink.style.display = "block";
+</script>
+</body>
+</html>
