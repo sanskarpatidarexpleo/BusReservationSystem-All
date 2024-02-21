@@ -1,0 +1,66 @@
+package com.expleo.busReservationSystem.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.expleo.busReservationSystem.entites.BookingsEntity;
+import com.expleo.busReservationSystem.responseModels.ResponseModel;
+import com.expleo.busReservationSystem.responseModels.ResponseObjectModel;
+import com.expleo.busReservationSystem.services.BookingService;
+import com.expleo.busReservationSystem.services.TravelsBookingService;
+
+@RestController
+public class BookingController {
+
+	@Autowired
+	BookingService bookingService;
+	
+	@Autowired
+	TravelsBookingService travelsBookingService;
+	
+	@PostMapping("/bookTravel")
+	public ResponseEntity<ResponseObjectModel<BookingsEntity>> bookTravel(BookingsEntity entity ){
+		BookingsEntity bookingEntity = bookingService.bookTravels(entity);
+		
+		ResponseObjectModel<BookingsEntity> responseModel = new ResponseObjectModel<BookingsEntity>();
+		ResponseEntity<ResponseObjectModel<BookingsEntity>> responseEntity;
+		if(bookingEntity != null) {
+			if(travelsBookingService.setTravelBooked(entity)) {
+				responseModel.status = true;
+				responseModel.message = "Booked Successfully";
+				responseModel.setData(bookingEntity);
+			}
+		} else {
+			responseModel.status = false;
+			responseModel.message = "Failed to book";
+			responseModel.setData(bookingEntity);
+		}
+		
+		responseEntity = new ResponseEntity<ResponseObjectModel<BookingsEntity>>(responseModel,HttpStatus.OK);
+//		ResponseEntity<Object> responseEntity ;
+//		if(bookingEntity == null) {
+//			responseEntity = new ResponseEntity<Object>(new ResponseModel(false,"Failed to Book"),HttpStatus.OK);
+//		} else {
+//			responseEntity = new ResponseEntity<Object>(bookingEntity,HttpStatus.OK);
+//		}
+		return responseEntity;
+	}
+	
+	@GetMapping("/cancelBooking")
+	public ResponseEntity<ResponseModel> cancelBooking(BookingsEntity entity){
+		ResponseModel responseModel = bookingService.cancelBooking(entity.getId());
+		if(responseModel.status) {
+			travelsBookingService.deleteTravelBooked(entity);  
+		}
+		return new ResponseEntity<ResponseModel>(responseModel,HttpStatus.OK);
+	}
+	
+	@GetMapping("/getBookingDetails")
+	public void getBookingDetails() {
+		
+	}
+}

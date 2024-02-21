@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.expleo.busReservationSystem.ResponseModel;
 import com.expleo.busReservationSystem.entites.TravelBookingModel;
 import com.expleo.busReservationSystem.entites.TravelsEntity;
+import com.expleo.busReservationSystem.responseModels.ResponseModel;
 import com.expleo.busReservationSystem.services.TravelsService;
 
 @RestController
@@ -50,7 +50,11 @@ public class TravelController {
 		return new ResponseEntity<ResponseModel>(responseModel,HttpStatus.OK);
 	}
 	
-	/* GET ALL BOOKINGS RELATED TO THAT TRAVEL */
+	
+	/* GET ALL BOOKINGS RELATED TO THAT TRAVEL 
+	 * This method will return the data of which user booked that travel 
+	 * Like as a admin he wants to see all the bookings of todays buses
+	 */
 	@GetMapping("/getAllBookingsOfTravel")
 	public ResponseEntity<List<TravelBookingModel>> getBookingsOfParticularTravel(){
 		List<TravelBookingModel> travelBookingList = travelsService.getBookingsOfTravel();

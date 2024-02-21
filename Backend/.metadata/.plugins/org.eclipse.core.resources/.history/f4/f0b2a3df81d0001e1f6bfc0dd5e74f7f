@@ -1,0 +1,5 @@
+package com.expleo.busReservationSystem.responseModels;
+
+public class ResponseObjectModel {
+
+}
