@@ -18,10 +18,10 @@ import com.expleo.busReservationSystem.entity.BusList;
 @Controller
 public class AdminController {
 	
-	private static final String BASE_URL = "http://localhost:8090/";
+	//private static final String BASE_URL = "http://localhost:8090/";
 	
-	@Autowired
-	RestTemplate restTemplate;
+	//@Autowired
+	//RestTemplate restTemplate;
 	
 	@GetMapping(path="admin")
 	public String adminLogin() {

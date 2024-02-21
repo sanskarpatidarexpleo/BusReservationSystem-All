@@ -91,7 +91,9 @@
     </div>
     
     <script>
-    
+    function myfunction(){
+    	alert("Bus Added Sucessfully");
+    }
     </script>
 </body>
 </html>
