@@ -77,7 +77,7 @@
         <h2>Add More Busses</h2>
         <div id="addBus" class="add-bus-form">
             <h3>Add Bus</h3>
-            <form id="addBusForm" action="addingBus" method="POST">
+            <form id="addBusForm" action="" method="POST">
                 <input type="text" name="busName" placeholder="Bus Name" required><br>
                 <input type="text" name="busNumber" placeholder="Bus Number" required><br>
                 <input type="number" name="seatsAvailable" placeholder="Bus seats" required><br>
