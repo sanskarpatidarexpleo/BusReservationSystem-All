@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="dashboard-block">
-            <a href="#showCustomerList">
+            <a href="seeCustomers">
                 <img src="https://th.bing.com/th?id=OIP.swW6ltaZFvmd-vVng-cZUwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Show Customer List">
                 <span>Show Customer List</span>
             </a>

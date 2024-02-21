@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="com.expleo.busReservationSystem.entity.BusList" %>
+<%@ page import="com.expleo.busReservationSystem.entity.CustomerList" %>
  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>See All Buses</title>
+<title>See All Customers</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -68,38 +68,33 @@
  <div class="navbar">
         <a href="addBus">Add Buses</a>
         <a href="seeBuses">See All Buses</a>
-        <a href="seeCustomers">Show Customer List</a>
+        <a href="#showCustomerList">Show Customer List</a>
     </div>
-    <h2>See All Buses</h2>
+    <h2>See All Customers</h2>
     <table>
         <thead>
             <tr>
-                <th>Bus Number</th>
-                <th>Bus Name</th>
-                <th>Travel From</th>
-                <th>Travel To</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
-                <th>Total Seats available</th>
-                <th>Price per seat </th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Mobile No</th>
+                <th>Date</th>
                 <!-- Add more columns as needed -->
             </tr>
         </thead>
         <tbody>  
            <% 
             
-            Iterable<BusList> busList = (Iterable<BusList>)request.getAttribute("busList");
-            for(BusList bus: busList){
+            Iterable<CustomerList> customerList = (Iterable<CustomerList>)request.getAttribute("customerList");
+            for(CustomerList c: customerList){
             %>
             <tr>
-                <td><%=bus.getBusNo() %></td>
-                <td><%=bus.getTravelName() %></td>
-                <td><%=bus.getTravelFrom() %></td>
-                <td><%=bus.getTravelTo() %></td>
-                <td><%=bus.getDepartureTime() %></td>
-                <td><%=bus.getArrivalTime() %></td>
-                <td><%=bus.getTotalSeats() %></td>
-                <td><%=bus.getPrice() %></td>
+                <td><%=c.getId() %></td>
+                <td><%=c.getName() %></td>
+                <td><%=c.getGender() %></td>
+                <td><%=c.getMobile() %></td>
+                <td><%=c.getDate() %></td>
+                
             </tr>
 			  <%
             }

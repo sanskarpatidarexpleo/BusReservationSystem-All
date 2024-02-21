@@ -70,11 +70,11 @@
     <div class="navbar">
         <a href="addBus">Add Buses</a>
         <a href="seeBuses">See All Buses</a>
-        <a href="#showCustomerList">Show Customer List</a>
+        <a href="seeCustomers">Show Customer List</a>
     </div>
     
     <div class="container">
-        <h2>Add More Busses</h2>
+        <h2>Fill Bus Details</h2>
         <div id="addBus" class="add-bus-form">
             <h3>Add Bus</h3>
             <form id="addBusForm" action="addingBus" method="POST">
