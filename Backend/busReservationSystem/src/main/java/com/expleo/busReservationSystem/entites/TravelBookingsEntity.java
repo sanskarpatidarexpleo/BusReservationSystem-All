@@ -2,6 +2,7 @@ package com.expleo.busReservationSystem.entites;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,9 +21,15 @@ public class TravelBookingsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int busId;
-	private int userId;
-	private Date date;
+	
+	@Column(name = "bus_id")
+	private int busId;  // id of the bus which is booked
+	
+	@Column(name = "user_id")
+	private int userId; // user id who booked
+	
+	@Column(name = "date")
+	private Date date; //date of booking
 	
 	public TravelBookingsEntity() {
 		

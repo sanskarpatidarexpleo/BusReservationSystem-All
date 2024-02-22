@@ -18,6 +18,8 @@ public class AuthService {
 	@Autowired
 	AdminAuthRepository adminAuthRepository;
 	
+	//======================================== USER LOGIN ============================================//
+	
 	public ResponseModel loginUser(UserLoginEntity entity) {
 		UserLoginEntity userEntity = authRepository.findByEmail(entity.getEmail());
 		ResponseModel responseModel ; 
@@ -37,6 +39,7 @@ public class AuthService {
 	}
 	
 	
+	//======================================== USER REGISTER ============================================//
 	
 	public ResponseModel registerUser(UserLoginEntity entity) {
 		UserLoginEntity validateEntity = authRepository.findByEmail(entity.getEmail());
@@ -57,6 +60,9 @@ public class AuthService {
 		return responseModel;
 	}
 	
+	
+	
+	//======================================== ADMIN LOGIN ============================================//
 	
 	public ResponseModel loginAdmin(AdminLoginEntity entity) {
 		AdminLoginEntity adminLoginEntity = adminAuthRepository.findByEmail(entity.getEmail());

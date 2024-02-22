@@ -1,5 +1,13 @@
 package com.expleo.busReservationSystem.entites;
 
+/*
+ * This is a simple model class containing two types of data.
+ * 1. User booking 
+ * 2. Travel booked
+ * 
+ * -> This data is required for admin -> Which users booked which travel 
+ */
+
 public class TravelBookingModel {
 
 	private TravelsEntity travelsEntity;
