@@ -17,10 +17,10 @@ public class BookingsEntity {
 	private int id;
 	
 	@Column(name = "user_id")
-	private int userId;
+	private int userId;  // id of user who booked
 	
 	@Column(name = "travel_id")
-	private int travelId;
+	private int travelId;  //contains id of travel which is booked
 	
 	@Column(name = "name")
 	private String name;
@@ -31,100 +31,129 @@ public class BookingsEntity {
 	@Column(name = "gender")
 	private String gender;
 	
-	@Column(name = "date")
-	private Date date;
+	@Column(name = "amount")
+	private float amount;  //total amount user paid
 	
-	@Column(name = "is_booking_active")
-	private boolean isBookingActive;
+	@Column(name = "seats")
+	private int seats; // no. of seats user booked
+	
+	@Column(name = "date")
+	private Date date;  //date of booking
+	
 	
 	public BookingsEntity() {
 		
 	}
 
-	public BookingsEntity(int userId, int travelId, String name, String mobile, String gender,
-			Date date , boolean isBookingActive) {
+
+	public BookingsEntity(int userId, int travelId, String name, String mobile, String gender, float amount, int seats,
+			Date date) {
+		super();
 		this.userId = userId;
 		this.travelId = travelId;
 		this.name = name;
 		this.mobile = mobile;
 		this.gender = gender;
+		this.amount = amount;
+		this.seats = seats;
 		this.date = date;
-		this.isBookingActive = isBookingActive;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public int getUserId() {
 		return userId;
 	}
 
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 
 	public int getTravelId() {
 		return travelId;
 	}
 
+
 	public void setTravelId(int travelId) {
 		this.travelId = travelId;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public String getMobile() {
 		return mobile;
 	}
 
+
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
+
 	public String getGender() {
 		return gender;
 	}
+
 
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
 
-	public boolean isBookingActive() {
-		return isBookingActive;
+	public float getAmount() {
+		return amount;
 	}
 
-	public void setBookingActive(boolean isBookingActive) {
-		this.isBookingActive = isBookingActive;
+
+	public void setAmount(float amount) {
+		this.amount = amount;
 	}
 
-	
+
+	public int getSeats() {
+		return seats;
+	}
+
+
+	public void setSeats(int seats) {
+		this.seats = seats;
+	}
+
+
 	public Date getDate() {
 		return date;
 	}
+
 
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
+
 	@Override
 	public String toString() {
-		return "BookingsEntity [id=" + id + ", userId=" + userId + ", travelId=" + travelId + ", name=" + name
-				+ ", mobile=" + mobile + ", gender=" + gender + ", date=" + date + ", isBookingActive="
-				+ isBookingActive + "]";
-	}
-
-	
-	
+		return "BookingsEntity [ id=" + id + ", userId=" + userId + ", travelId=" + travelId + ", name=" + name
+				+ ", mobile=" + mobile + ", gender=" + gender + ", amount=" + amount + ", seats=" + seats + ", date="
+				+ date + " ]";
+	}	
 }

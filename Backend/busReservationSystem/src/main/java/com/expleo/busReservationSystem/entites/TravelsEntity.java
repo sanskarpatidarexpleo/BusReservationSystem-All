@@ -39,11 +39,14 @@ public class TravelsEntity {
 	@Column(name = "arrival_time")
 	private LocalTime arrivalTime;
 	
+	@Column(name = "available_seats")
+	private int availableSeats;  // empty seats which are not booked yet
+	
 	@Column(name = "total_seats")
-	private int totalSeats;
+	private int totalSeats;  // total no. of seats
 	
 	@Column(name = "price")
-	private float price;
+	private float price;  // price per seat
 	
 	@Column(name = "created_at")
 	private Date createdAt;
@@ -55,8 +58,13 @@ public class TravelsEntity {
 		
 	}
 
+<<<<<<< HEAD
+	public TravelsEntity(String travelName, String travelfrom, String travelTo, String busNo, LocalTime departureTime,
+			LocalTime arrivalTime, int availableSeats, int totalSeats, float price, Date createdAt, Date deletedAt) {
+=======
 	public TravelsEntity(String travelName, String travelFrom, String travelTo, String busNo, LocalTime departureTime,
 			LocalTime arrivalTime, int totalSeats, float price, Date createdAt, Date deletedAt) {
+>>>>>>> 525dae5ac91aed644510026ad7b4acb0715cb22c
 		super();
 		this.travelName = travelName;
 		this.travelFrom = travelFrom;
@@ -64,6 +72,7 @@ public class TravelsEntity {
 		this.busNo = busNo;
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
+		this.availableSeats = availableSeats;
 		this.totalSeats = totalSeats;
 		this.price = price;
 		this.createdAt = createdAt;
@@ -86,8 +95,11 @@ public class TravelsEntity {
 		this.travelName = travelName;
 	}
 
+<<<<<<< HEAD
+=======
 	
 	
+>>>>>>> 525dae5ac91aed644510026ad7b4acb0715cb22c
 	public String getTravelFrom() {
 		return travelFrom;
 	}
@@ -95,7 +107,7 @@ public class TravelsEntity {
 	public void setTravelFrom(String travelFrom) {
 		this.travelFrom = travelFrom;
 	}
-
+	
 	public String getTravelTo() {
 		return travelTo;
 	}
@@ -136,6 +148,15 @@ public class TravelsEntity {
 		this.totalSeats = totalSeats;
 	}
 
+
+	public int getAvailableSeats() {
+		return availableSeats;
+	}
+
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
+
 	public float getPrice() {
 		return price;
 	}
@@ -162,10 +183,10 @@ public class TravelsEntity {
 
 	@Override
 	public String toString() {
-		return "TravelsEntity [id=" + id + ", travelName=" + travelName + ", travelfrom=" + travelFrom + ", travelTo="
+		return "TravelsEntity [ id=" + id + ", travelName=" + travelName + ", travelFrom=" + travelFrom + ", travelTo="
 				+ travelTo + ", busNo=" + busNo + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime
-				+ ", totalSeats=" + totalSeats + ", price=" + price + ", createdAt=" + createdAt + ", deletedAt="
-				+ deletedAt + "]";
+				+ ", availableSeats=" + availableSeats + ", totalSeats=" + totalSeats + ", price=" + price
+				+ ", createdAt=" + createdAt + ", deletedAt=" + deletedAt + " ]";
 	}
-	
+
 }

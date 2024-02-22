@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.expleo.busReservationSystem.entites.BookingsEntity;
 import com.expleo.busReservationSystem.entites.TravelBookingModel;
+import com.expleo.busReservationSystem.entites.TravelsEntity;
 import com.expleo.busReservationSystem.responseModels.ResponseModel;
 import com.expleo.busReservationSystem.responseModels.ResponseObjectModel;
 import com.expleo.busReservationSystem.services.BookingService;
@@ -45,14 +46,9 @@ public class BookingController {
 		}
 		
 		responseEntity = new ResponseEntity<ResponseObjectModel<BookingsEntity>>(responseModel,HttpStatus.OK);
-//		ResponseEntity<Object> responseEntity ;
-//		if(bookingEntity == null) {
-//			responseEntity = new ResponseEntity<Object>(new ResponseModel(false,"Failed to Book"),HttpStatus.OK);
-//		} else {
-//			responseEntity = new ResponseEntity<Object>(bookingEntity,HttpStatus.OK);
-//		}
 		return responseEntity;
 	}
+	
 	
 	/*CANCEL BOOKING*/
 	@GetMapping("/cancelBooking")
@@ -65,6 +61,14 @@ public class BookingController {
 	}
 	
 	
+	/* SEARCH TRAVEL BY SOURCE AND DESTINATION */
+	@GetMapping("/searchTravels")
+	public ResponseEntity<List<TravelsEntity>> getSearchTravels(String travelFrom , String travelTo){
+		List<TravelsEntity> travelList = bookingService.searchTravelByRoute(travelFrom, travelTo);
+		return new ResponseEntity<List<TravelsEntity>>(travelList , HttpStatus.OK);
+	}
+	
+	//TODO
 	@GetMapping("/getBookingDetails")
 	public ResponseEntity<List<TravelBookingModel>> getBookingDetails() {
 		return null;

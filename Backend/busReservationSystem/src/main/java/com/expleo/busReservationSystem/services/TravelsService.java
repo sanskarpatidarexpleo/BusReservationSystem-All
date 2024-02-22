@@ -34,6 +34,7 @@ public class TravelsService {
 	//======================================== CREATE ============================================//
 	
 	public ResponseModel addTravels(TravelsEntity entity) {
+		entity.setCreatedAt(new Date());
 		TravelsEntity responseEntity = travelRepository.save(entity);
 		System.out.println("TravelsService::addTravels() ResponseEntity -> "+responseEntity);
 		ResponseModel responseModel;
