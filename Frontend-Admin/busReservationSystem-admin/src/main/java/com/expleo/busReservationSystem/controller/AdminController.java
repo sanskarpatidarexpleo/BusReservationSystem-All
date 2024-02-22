@@ -102,7 +102,7 @@ public class AdminController {
 	  public String showCustomerList(Model model) {
 		  
 		  ResponseEntity<List<CustomerList>> response = restTemplate.exchange(
-		            BASE_URL + "/getBookingDetails", //Need to change url
+		            BASE_URL + "/getAllBookingsOfTravel", 
 		            HttpMethod.GET,
 		            null,
 		            new ParameterizedTypeReference<List<CustomerList>>() {});
