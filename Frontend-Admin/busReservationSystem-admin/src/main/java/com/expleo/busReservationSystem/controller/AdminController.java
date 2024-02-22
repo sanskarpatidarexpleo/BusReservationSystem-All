@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.expleo.busReservationSystem.ResponseModel;
 import com.expleo.busReservationSystem.entity.BusList;
+import com.expleo.busReservationSystem.entity.CustomerList;
 
 
 @Controller
@@ -52,38 +55,60 @@ public class AdminController {
 		        return "AdminLogin";
 		    }
 	}
+	
 	@GetMapping(path="/addBus")
 	public String AddBus() {
-		
 		return "AddBus";
 	}
 
 	  @PostMapping("/addingBus")
-	    public String AddingBus(BusList bs,Model model) {
-	        return "busAddedSucessfully";
+	    public String AddingBus(BusList b,Model model) {
+		  UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL+"/addTravel")
+			        .queryParam("travelName",b.getTravelName())
+			        .queryParam("travelFrom",b.getTravelFrom())
+			        .queryParam("travelTo", b.getTravelTo())
+			        .queryParam("busNo", b.getBusNo())
+			        .queryParam("departureTime", b.getDepartureTime())
+			        .queryParam("arrivalTime", b.getArrivalTime())
+			        .queryParam("totalSeats", b.getTotalSeats())
+			        .queryParam("price", b.getPrice());
+			        
+			String url = builder.toUriString();
+			System.out.println(b.toString());
+			
+			ResponseEntity<ResponseModel> response = restTemplate.postForEntity(url,b, ResponseModel.class);
+			ResponseModel responseModel = response.getBody();
+			
+	        return "AddBus";
 	    }
 	  
 	  @GetMapping("/seeBuses")
 	  public String showBusses(Model model) {
-		  Iterable<BusList> bs = getIterableBusList();
-		  model.addAttribute("bs", bs);
-		  System.out.println(bs);
-		  return "ShowAllBuses";
+		  
+		  ResponseEntity<List<BusList>> response = restTemplate.exchange(
+		            BASE_URL + "/getAllTravels",
+		            HttpMethod.GET,
+		            null,
+		            new ParameterizedTypeReference<List<BusList>>() {});
+
+		  Iterable<BusList> busList = response.getBody();
+		    model.addAttribute("busList", busList);
+		    return "ShowAllBuses";
 	  }
 
-	  private Iterable<BusList> getIterableBusList() {
-	        List<BusList> busList = new ArrayList<>();
-	        busList.add(new BusList("Mh25","Komal",30,"pune","Latur",LocalDate.of(2024, 2, 20),LocalTime.of(11,50),550));
-		    busList.add(new BusList("Mh26","Saad",30,"pune","Latur",LocalDate.of(2024, 2, 20),LocalTime.of(12,50),650));
-	        busList.add(new BusList("Mh24", "Rudra", 30, "Pune", "Latur", LocalDate.of(2024, 2, 20), LocalTime.of(10, 50), 50));
-	        return busList;
-	    }
+
 	  
 	  @GetMapping(path="/seeCustomers")
 	  public String showCustomerList(Model model) {
 		  
+		  ResponseEntity<List<CustomerList>> response = restTemplate.exchange(
+		            BASE_URL + "/getBookingDetails", //Need to change url
+		            HttpMethod.GET,
+		            null,
+		            new ParameterizedTypeReference<List<CustomerList>>() {});
 		  
-		  
+		  Iterable<CustomerList> customerList = response.getBody();
+		    model.addAttribute("customerList", customerList);
 		  return "customerList";
 	  }
 	  

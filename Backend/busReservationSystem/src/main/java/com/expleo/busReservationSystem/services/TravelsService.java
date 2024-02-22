@@ -38,7 +38,7 @@ public class TravelsService {
 		TravelsEntity responseEntity = travelRepository.save(entity);
 		System.out.println("TravelsService::addTravels() ResponseEntity -> "+responseEntity);
 		ResponseModel responseModel;
-		if(responseEntity == null) {
+		if(responseEntity != null) {
 			responseModel = new ResponseModel(true,"Travels added");
 		} else {
 			System.err.println("TravelsService::addTravels() ERROR");

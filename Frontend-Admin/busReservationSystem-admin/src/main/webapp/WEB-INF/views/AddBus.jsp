@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>AddBus</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,25 +70,34 @@
     <div class="navbar">
         <a href="addBus">Add Buses</a>
         <a href="seeBuses">See All Buses</a>
-        <a href="#showCustomerList">Show Customer List</a>
+        <a href="seeCustomers">Show Customer List</a>
     </div>
     
     <div class="container">
-        <h2>Welcome to Admin Dashboard</h2>
+        <h2>Fill Bus Details</h2>
         <div id="addBus" class="add-bus-form">
             <h3>Add Bus</h3>
             <form id="addBusForm" action="addingBus" method="POST">
-                <input type="text" name="busName" placeholder="Bus Name" required><br>
-                <input type="text" name="busNumber" placeholder="Bus Number" required><br>
-                <input type="number" name="seatsAvailable" placeholder="Bus seats" required><br>
-                <input type="text" name="source" placeholder="Source" required><br>
-                <input type="text" name="destination" placeholder="Destination" required><br>
-                <input type="date" name="departuredate" placeholder="Date" required><br>
+                <input type="text" name="travelName" placeholder="Bus Name" required><br>
+                <input type="text" name="busNo" placeholder="Bus Number" required><br>
+                <input type="text" name="travelFrom" placeholder="Source" required><br>
+                <input type="text" name="travelTo" placeholder="Destination" required><br>
+                <label for="departureTime" class="placeholder">Departure Time</label>
                 <input type="time" name="departureTime" placeholder="Departure Time" required><br>
-                <input type="text" name="Price" placeholder="price" required><br>
-                <input type="submit" value="Add Bus">
+                <label for="departureTime" class="placeholder">Arrival time</label>
+                <input type="time" name="arrivalTime" placeholder="Arrival Time" required><br>
+                <input type="text" name="totalSeats" placeholder="TotalSeats" required><br>
+                <input type="text" name="price" placeholder="amount" required><br>
+                <input type="submit" onclick="myfunction()" value="Add Bus">
             </form>
         </div>
     </div>
+    
+    <script>
+    function myfunction(){
+    	alert("Bus Added Sucessfully");
+    }
+    </script>
 </body>
 </html>
+

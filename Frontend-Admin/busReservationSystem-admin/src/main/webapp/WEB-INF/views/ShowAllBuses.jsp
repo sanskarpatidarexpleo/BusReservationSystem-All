@@ -13,6 +13,23 @@
         margin: 0;
         padding: 0;
     }
+    
+    .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
 
     h2 {
         text-align: center;
@@ -48,36 +65,41 @@
 </style>
 </head>
 <body>
+ <div class="navbar">
+        <a href="addBus">Add Buses</a>
+        <a href="seeBuses">See All Buses</a>
+        <a href="seeCustomers">Show Customer List</a>
+    </div>
     <h2>See All Buses</h2>
     <table>
         <thead>
             <tr>
-                <th>Bus Name</th>
                 <th>Bus Number</th>
-                <th>Seats Available</th>
-                <th>Source</th>
-                <th>Destination</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Price</th>
+                <th>Bus Name</th>
+                <th>Travel From</th>
+                <th>Travel To</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Total Seats available</th>
+                <th>Price per seat </th>
                 <!-- Add more columns as needed -->
             </tr>
         </thead>
         <tbody>  
            <% 
             
-            Iterable<BusList> bs = (Iterable<BusList>)request.getAttribute("bs");
-            for(BusList bus: bs){
+            Iterable<BusList> busList = (Iterable<BusList>)request.getAttribute("busList");
+            for(BusList bus: busList){
             %>
             <tr>
-                <td><%=bus.getBusName()%></td>
-                <td><%=bus.getBusNumber()%></td>
-                <td><%=bus.getSeatsAvailable()%></td>
-                <td><%=bus.getSource()%></td>
-                <td><%=bus.getDestination()%></td>
-                <td><%=bus.getDeparturedate()%></td>
-                <td><%=bus.getDepartureTime()%></td>
-                <td><%=bus.getPrice()%></td>
+                <td><%=bus.getBusNo() %></td>
+                <td><%=bus.getTravelName() %></td>
+                <td><%=bus.getTravelFrom() %></td>
+                <td><%=bus.getTravelTo() %></td>
+                <td><%=bus.getDepartureTime() %></td>
+                <td><%=bus.getArrivalTime() %></td>
+                <td><%=bus.getTotalSeats() %></td>
+                <td><%=bus.getPrice() %></td>
             </tr>
 			  <%
             }

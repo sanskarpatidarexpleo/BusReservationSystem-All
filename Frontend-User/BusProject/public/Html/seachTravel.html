@@ -4,21 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Reservation System</title>
-    <link rel="stylesheet" href="../css/searchTravel.css">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+	body {
+    	    font-family: Arial, sans-serif;
+    	    background-color: #f2f2f2;
+    	    margin: 0;
+    	    padding: 0;
+	}
+        .container {
+            margin-top: 50px;
+            max-width: 400px; /* Adjust the max-width as needed */
+        }
+        .reservation-box {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px; /* Add spacing between input groups */
+        }
+        .input-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group select,
+        .input-group input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .input-group select:focus,
+        .input-group input[type="date"]:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            border-color: #80bdff;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+    <script>// Get today's date
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    var yyyy = today.getFullYear();
+    var maxDate = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days later
+
+    today = yyyy + '-' + mm + '-' + dd;
+    maxDate = maxDate.toISOString().split('T')[0]; // Convert maxDate to YYYY-MM-DD format
+
+    // Set min and max attributes for date input
+    document.getElementById("date").setAttribute("min", today);
+    document.getElementById("date").setAttribute("max", maxDate);</script>
 </head>
-<body>
+<!-- <body>
     <div class="container">
-       
         <div class="reservation-box">
             <form action="busAvailable.html">
-               
                 <div class="input-group">
                     <label for="source">Source City:</label>
-                    <input type="text" id="source" name="source" required>
+                    <select id="source" name="source" class="form-control" required>
+                        <option value="">Select Source City</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Goa">Goa</option>
+                    </select>
                 </div>
                 <div class="input-group">
                     <label for="destination">Destination City:</label>
-                    <input type="text" id="destination" name="destination" required>
+                    <select id="destination" name="destination" class="form-control" required>
+                        <option value="">Select Destination City</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="date">Travel Date:</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+<<<<<<< HEAD
+    
+</body>
+</html> -->
+
+<body>
+    <div class="container">
+        <div class="reservation-box">
+            <form action="busAvailable.html">
+                <div class="input-group">
+                    <label for="source">Source City:</label>
+                    <select id="source" name="source" required>
+                        <option value="">Select Source City</option>
+                        <option value="city1">Pune</option>
+                        <option value="city2">Hyderabad </option>
+                        <option value="city3">Goa</option>
+                      
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="destination">Destination City:</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select Destination City</option>
+                        <option value="city1">Kolkata</option>
+                        <option value="city2">Delhi</option>
+                        <option value="city3">Banglore</option>
+                       
+                    </select>
                 </div>
                 <div class="input-group">
                     <label for="date">Travel Date:</label>
@@ -28,6 +141,7 @@
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
+=======
+>>>>>>> 92c5d4fd0e8b767706e75ca4f03e0829b73662e3
 </body>
 </html>
