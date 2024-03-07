@@ -50,7 +50,7 @@ public class UserController {
 		ResponseModel responseModel = response.getBody();
 		 if (responseModel != null && responseModel.status) {
 		        ml.addAttribute("status","Registration Sucessful. Please Log In ");
-		        return "redirect:/Login";
+		        return "redirect:/login";
 		    } else {
 		        ml.addAttribute("error", "Registration failed. Please try again");
 		        return "Register";
