@@ -56,6 +56,11 @@ public class AdminController {
 		    }
 	}
 	
+	@GetMapping(path="/hi")
+	public String hi() {
+		return "Hello";
+	}
+	
 	@GetMapping(path="/addBus")
 	public String AddBus() {
 		return "AddBus";

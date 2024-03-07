@@ -83,11 +83,6 @@ public class UserController {
 	//-----------------------------------------------------------------------------------------------------------------------
 	
 	
-//	@GetMapping(path="/bookTravelFrom")
-//	public String bookTravelform() {
-//		return "BookTravelForm";
-//	}
-	
 	
 	@GetMapping(path="/bookTravelFrom")
 	public String getTravelForm(Model model) {

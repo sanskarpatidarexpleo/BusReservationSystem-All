@@ -57,14 +57,8 @@ public class TravelsEntity {
 	public TravelsEntity() {
 		
 	}
-
-<<<<<<< HEAD
-	public TravelsEntity(String travelName, String travelfrom, String travelTo, String busNo, LocalTime departureTime,
-			LocalTime arrivalTime, int availableSeats, int totalSeats, float price, Date createdAt, Date deletedAt) {
-=======
 	public TravelsEntity(String travelName, String travelFrom, String travelTo, String busNo, LocalTime departureTime,
 			LocalTime arrivalTime, int totalSeats, float price, Date createdAt, Date deletedAt) {
->>>>>>> 525dae5ac91aed644510026ad7b4acb0715cb22c
 		super();
 		this.travelName = travelName;
 		this.travelFrom = travelFrom;
@@ -95,11 +89,6 @@ public class TravelsEntity {
 		this.travelName = travelName;
 	}
 
-<<<<<<< HEAD
-=======
-	
-	
->>>>>>> 525dae5ac91aed644510026ad7b4acb0715cb22c
 	public String getTravelFrom() {
 		return travelFrom;
 	}

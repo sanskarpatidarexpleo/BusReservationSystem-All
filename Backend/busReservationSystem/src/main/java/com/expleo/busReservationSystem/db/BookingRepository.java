@@ -10,5 +10,5 @@ import com.expleo.busReservationSystem.entites.TravelsEntity;
 @Repository
 public interface BookingRepository extends ListCrudRepository<BookingsEntity, Integer>{
 
-	public List<TravelsEntity> findAllByTravelFromAndTravelTo(String travelFrom , String travelTo);
+	//public List<TravelsEntity> findAllByTravelFromAndTravelTo(String travelFrom , String travelTo);
 }

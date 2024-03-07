@@ -46,8 +46,8 @@ public class BookingService {
 	
 	//======================================== SEARCH TRAVEL ============================================//
 	
-	public List<TravelsEntity> searchTravelByRoute(String travelFrom , String travelTo){
-		return bookingRepository.findAllByTravelFromAndTravelTo(travelFrom, travelTo);
-		
-	}	
+//	public List<TravelsEntity> searchTravelByRoute(String travelFrom , String travelTo){
+//		return bookingRepository.findAllByTravelFromAndTravelTo(travelFrom, travelTo);
+//		
+//	}	
 }
